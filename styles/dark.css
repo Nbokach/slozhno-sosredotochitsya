@@ -1,1 +1,21 @@
 
+:root .theme_dark {
+  --size-mobaile:clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
+  --size-decstor:clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
+  --header-rec-display: #ff0070;
+  --header-rec-color: #ff0070;
+  --title-color: #db00ff;
+  --title-shadow: 4px 4px #ff0070;
+  --text-shadow: 1px 2px #ff0070;
+  --lots_text: #f1b2ce;
+  --back-line-color: #ff0070;
+  --text-header-color: #ff0070;
+  --button-color: #ff0070;
+  --button-color-light-none: none;
+  --button-color-dark-none: #ff0070;
+  --button-hover: rgba(225, 0, 112, 0.4);
+  --text-color-header: #000028;
+  --rectangle-color: #ff0070;
+  --page-background-image: url("../images/cover-image-dark.png");
+  --reserv-color: #000028;
+}
