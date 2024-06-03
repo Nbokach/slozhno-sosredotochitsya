@@ -1,10 +1,11 @@
 /* Основные стили проекта. Это стили для темы, которую вы верстаете первой. */
 
 .page {
-  margin: 10px 10px;
+  margin: 10px 10px 0px 10px;
   background-image: var(--page-background-image);
   background-attachment: fixed;
   background-position: center;
+  background-size: cover;
   display: grid;
   grid-template-rows: repeat(3, min-content);
   gap: 40px;
@@ -38,7 +39,7 @@
   border-color: var(--rectangle-color);
   width: 25px;
   height: 25px;
-  bottom: 10px;
+  bottom: 20px;
   left: 0px;
 }
 
@@ -50,7 +51,6 @@
   text-align: left;
   text-shadow: var(--title-shadow);
   color: var(--title-color);
-  max-height: 192px;
   margin: 65px 0px 55px 0px;
 }
 
@@ -64,6 +64,7 @@
   text-align: end;
   padding-right: 28px;
   padding-bottom: 40px;
+  text-transform: uppercase;
   margin: 0;
 }
 
@@ -129,12 +130,11 @@
 }
 
 .header_overview {
-  display: flex;
-  flex-direction: row;
   justify-self: end;
+  align-self: flex-start;
   background-color: var(--back-line-color);
   max-width: 355px;
-  max-height: 117px;
+  background-size: cover;
 }
 
 .header_overview-text {
@@ -153,6 +153,23 @@
   display: grid;
   grid-template-rows: repeat(4, min-content);
   gap: 50px;
+}
+
+.lots-element {
+  text-shadow: var(--text-shadow);
+  text-decoration: none;
+}
+
+.lots-element:hover {
+  border-block-end: 1px solid var(--lots_text);
+}
+
+.lots-element:focus {
+  outline: none;
+}
+
+.lots-element:focus-visible {
+  outline: 1px solid var(--lots-text);
 }
 
 .lots_why {
@@ -243,18 +260,6 @@
   margin: 0px;
 }
 
-.text-shadow {
-  text-shadow: var(--text-shadow);
-}
-
-.text-shadow:hover {
-  text-underline-offset: 1px solid var(--lots_text);
-}
-
-.text-shadow:focus {
-  outline: 1px solid var(--lots_text);
-}
-
 .image {
   display: block;
   width: 100%;
@@ -266,6 +271,8 @@
   width: 100%;
   height: 100%;
   max-width: 355px;
+  object-fit: cover;
+  object-position: center;
 }
 
 .footer {
@@ -274,30 +281,6 @@
   flex-direction: column;
   justify-content: center;
   min-height: 668px;
-}
-
-.footer::before {
-  content: "";
-  position: absolute;
-  border-width: 0px 0px 1px 1px;
-  border-style: solid;
-  border-color: var(--rectangle-color);
-  width: 25px;
-  height: 25px;
-  bottom: 10px;
-  left: 0px;
-}
-
-.footer::after {
-  content: "";
-  position: absolute;
-  border-width: 1px 1px 0 0;
-  border-style: solid;
-  border-color: var(--rectangle-color);
-  width: 25px;
-  height: 25px;
-  right: 0px;
-  top: 10px;
 }
 
 .footer_title {
@@ -313,10 +296,11 @@
 @media (width >= 768px) {
   .page {
     gap: 60px;
+    margin: 20px 20px 0px 20px;
   }
 
   .header {
-    grid-template-rows: 0.67fr 1.08fr 1fr 1.2fr;
+    grid-template-rows: 0.67fr 1.08fr 1.04fr 1.17fr;
     min-height: 1004px;
   }
 
@@ -325,13 +309,8 @@
     font-size: 120px;
     font-weight: 700;
     line-height: 99px;
-    max-height: 100px;
     margin-left: -20px;
     margin-top: 0px;
-  }
-
-  .page {
-    margin: 20px 20px;
   }
 
   .header_overview {
@@ -359,7 +338,6 @@
   .lots_pictures-wrapper {
     display: grid;
     gap: 20px;
-    min-height: 780px;
     grid-template-columns: repeat(3, 1fr);
   }
 
@@ -416,7 +394,6 @@
     bottom: 20px;
   }
 
-
   .footer_title {
     margin: 0px;
     font-size: 120px;
@@ -427,20 +404,26 @@
 @media (width >= 1024px) {
   .page {
     gap: 60px;
-    margin: 0px;
   }
 
   .header {
-    grid-template-rows: 1.1fr 1fr 0.8fr;
+    grid-template-rows: 0fr 2fr 0.8fr;
     min-height: 748px;
   }
 
+  .header__rec {
+    position: absolute;
+    right: 0px;
+  }
+
   .header_title {
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
     font-size: 157px;
     font-weight: 700;
     line-height: 129.53px;
-    max-height: 192px;
-    margin-top: 17px;
+    margin-bottom: 110px;
   }
 
   .decorated-zone::before {
@@ -448,10 +431,10 @@
   }
 
   .header__theme-menu {
-    display: flex;
-    position: absolute;
+    display: grid;
     top: 0px;
     right: 377px;
+    justify-self: center;
   }
 
   .header__theme-menu-list {
@@ -461,12 +444,7 @@
   }
 
   .header_overview {
-    max-width: 491px;
-    max-height: 71px;
-  }
-
-  .page {
-    margin: 20px 20px;
+    min-width: 491px;
   }
 
   .lots {
@@ -490,16 +468,8 @@
     gap: 10px;
   }
 
-  .lots_pictures {
-    min-height: 1092px;
-  }
-
   .lots_title {
     max-width: 315px;
-  }
-
-  .lots_subtitle {
-    max-height: 23px;
   }
 
   .lots_item {
@@ -514,6 +484,6 @@
 
   .footer_title {
     font-size: 157px;
-    line-height: 129.53px;    
+    line-height: 129.53px;
   }
 }
