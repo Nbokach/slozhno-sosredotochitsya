@@ -17,6 +17,7 @@
   grid-template-columns: 1fr;
   grid-template-rows: min-content min-content min-content;
   min-height: 658px;
+  height: 100%;
 }
 
 .decorated-zone::after {
@@ -39,13 +40,13 @@
   border-color: var(--rectangle-color);
   width: 25px;
   height: 25px;
-  bottom: 20px;
+  bottom: 0px;
   left: 0px;
 }
 
 .header_title {
   font-family: var(--main-font);
-  font-size: 116px;
+  font-size: var(--size-mobaile);
   font-weight: 700;
   line-height: 95.7px;
   text-align: left;
@@ -84,13 +85,12 @@
   display: flex;
   flex-direction: column;
   align-items: end;
-  gap: 10px;
+  gap: 17px;
   margin: 0px 0px;
 }
 
 .header__theme-menu-item {
   list-style: none;
-  min-height: 26px;
 }
 
 .header__theme-menu-button {
@@ -102,12 +102,25 @@
   font-weight: 400;
   line-height: 18px;
   text-align: center;
-  padding: 4px 15px;
+  padding: 1.5px 13px;
+}
+
+.header__theme-menu-button_type_dark {
+  outline: 1px solid var(--button-color-dark-none);
+}
+
+.header__theme-menu-button_type_light {
+  outline: 1px solid var(--button-color-light-none);
+}
+
+.header__theme-menu-button_active {
+  pointer-events: none;
+  outline: 1px solid var(--button-color);;
 }
 
 .header__theme-menu-button:hover {
   outline: 1px solid var(--button-hover);
-  padding: 1.5px 13px 4px 13px;
+  cursor: pointer;
 }
 
 .header__theme-menu-button:focus {
@@ -116,17 +129,7 @@
 
 .header__theme-menu-button:focus-visible {
   outline: none;
-  outline: 1px solid var(--button-color);
-}
-
-.header__theme-menu-button_type_dark {
-  outline: 1px solid var(--button-color-dark-none);
-  padding: 1.5px 13px 4px 13px;
-}
-
-.header__theme-menu-button_type_light {
-  outline: 1px solid var(--button-color-light-none);
-  padding: 1.5px 13px 4px 13px;
+  border-bottom: 1px solid var(--button-color);
 }
 
 .header_overview {
@@ -162,6 +165,7 @@
 
 .lots-element:hover {
   border-block-end: 1px solid var(--lots_text);
+  cursor: pointer;
 }
 
 .lots-element:focus {
@@ -270,7 +274,6 @@
   display: block;
   width: 100%;
   height: 100%;
-  max-width: 355px;
   object-fit: cover;
   object-position: center;
 }
@@ -281,11 +284,16 @@
   flex-direction: column;
   justify-content: center;
   min-height: 668px;
+  height: 100%;
+}
+
+.footer::after {
+  top: 10px;
 }
 
 .footer_title {
   font-family: var(--main-font);
-  font-size: 116px;
+  font-size: var(--size-mobaile);
   font-weight: 700;
   line-height: 95.7px;
   text-align: center;
@@ -300,14 +308,13 @@
   }
 
   .header {
-    grid-template-rows: 0.67fr 1.08fr 1.04fr 1.17fr;
+    grid-template-rows: 0.68fr 1.08fr 1.04fr 1.19fr;
     min-height: 1004px;
   }
 
   .header_title {
     display: flex;
     font-size: 120px;
-    font-weight: 700;
     line-height: 99px;
     margin-left: -20px;
     margin-top: 0px;
@@ -318,8 +325,6 @@
   }
 
   .lots {
-    display: grid;
-    grid-template-rows: repeat(4, min-content);
     gap: 80px;
   }
 
@@ -343,19 +348,6 @@
 
   .lots_title {
     max-width: 236px;
-  }
-
-  .image-pic {
-    display: grid;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-    max-width: none;
-  }
-
-  .image {
-    display: grid;
   }
 
   .image:nth-child(1) {
@@ -390,7 +382,7 @@
     top: 20px;
   }
 
-  .footer::before {
+  .decorated-zone::before {
     bottom: 20px;
   }
 
@@ -403,9 +395,9 @@
 
 @media (width >= 1024px) {
   .page {
-    gap: 60px;
+    max-width: 100%;
   }
-
+  
   .header {
     grid-template-rows: 0fr 2fr 0.8fr;
     min-height: 748px;
@@ -417,11 +409,9 @@
   }
 
   .header_title {
-    display: flex;
     flex-direction: column;
     justify-content: end;
-    font-size: 157px;
-    font-weight: 700;
+    font-size: var(--size-decstor);
     line-height: 129.53px;
     margin-bottom: 110px;
   }
@@ -438,8 +428,6 @@
   }
 
   .header__theme-menu-list {
-    margin: 0px 0px;
-    display: flex;
     flex-direction: row;
   }
 
@@ -447,20 +435,11 @@
     min-width: 491px;
   }
 
-  .lots {
-    display: grid;
-    grid-template-rows: repeat(4, min-content);
-    gap: 80px;
-  }
-
   .lots_why {
-    grid-template-columns: 0.7fr 1.4fr;
     gap: 10px;
   }
 
   .lots_what-wrapper {
-    display: grid;
-    gap: 20px;
     grid-template-columns: repeat(3, 1fr);
   }
 
@@ -473,8 +452,6 @@
   }
 
   .lots_item {
-    display: grid;
-    gap: 10px;
     grid-template-rows: 0fr 2fr;
   }
 
@@ -483,7 +460,7 @@
   }
 
   .footer_title {
-    font-size: 157px;
+    font-size: var(--size-decstor);
     line-height: 129.53px;
   }
 }
