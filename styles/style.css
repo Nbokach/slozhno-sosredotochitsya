@@ -1,7 +1,7 @@
 /* Основные стили проекта. Это стили для темы, которую вы верстаете первой. */
 
 .page {
-  margin: 10px 10px 0px 10px;
+  margin: 0px 10px;
   background-image: var(--page-background-image);
   background-attachment: fixed;
   background-position: center;
@@ -13,6 +13,7 @@
 }
 
 .header {
+  margin-top: 10px;
   position: relative;
   display: grid;
   grid-template-columns: 1fr;
@@ -156,17 +157,17 @@
   text-decoration: none;
 }
 
+.lots-element:focus {
+  outline: none;
+}
+
 .lots-element:hover {
   border-block-end: 1px solid var(--lots_text);
   cursor: pointer;
 }
 
-.lots-element:focus {
-  outline: none;
-}
-
 .lots-element:focus-visible {
-  outline: 1px solid var(--lots-text);
+  outline: 1px solid var(--lots_text);
 }
 
 .lots_why {
@@ -294,20 +295,26 @@
   color: var(--title-color);
 }
 
+@media (min-width: 385px) and (max-width: 767px)  {
+  .header {
+    grid-template-rows: max-content minmax(min-content, max-content);
+  }
+}
+
 @media (width >= 768px) {
   .page {
     gap: 60px;
-    margin: 20px 20px 0px 20px;
+    margin: 0px 20px;
   }
 
   .header {
     grid-template-rows: 0.68fr 1.08fr 1.04fr 1.19fr;
     min-block-size: 1004px;
+    margin-top: 20px;
   }
 
   .header_title {
     display: flex;
-    font-size: 120px;
     line-height: 99px;
     margin-left: -20px;
     margin-top: 0px;
@@ -381,16 +388,15 @@
 
   .footer_title {
     margin: 0px;
-    font-size: 120px;
     line-height: 99px;
   }
 }
 
 @media (width >= 1024px) {
   .page {
-    margin: 20px auto;
+    margin: 0px auto;
   }
-  
+
   .header {
     grid-template-rows: 0fr 2fr 0.8fr;
     min-block-size: 748px;
