@@ -13,12 +13,12 @@
 }
 
 .header {
-  margin-top: 10px;
+  padding-top: 10px;
   position: relative;
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: min-content min-content min-content;
-  min-block-size: 658px;
+  min-block-size: 668px;
   block-size: 100vh;
 }
 
@@ -30,7 +30,7 @@
   border-color: var(--rectangle-color);
   width: 25px;
   height: 25px;
-  top: 0px;
+  top: 10px;
   right: 0px;
 }
 
@@ -79,7 +79,7 @@
   position: absolute;
   background-color: var(--header-rec-display);
   box-shadow: 0px 0px 4px 2px var(--header-rec-display);
-  top: 8px;
+  top: 18px;
   right: 9px;
 }
 
@@ -109,7 +109,7 @@
 
 .header__theme-menu-button_active {
   pointer-events: none;
-  outline: 1px solid var(--button-color);;
+  outline: 1px solid var(--button-color);
 }
 
 .header__theme-menu-button:hover {
@@ -277,7 +277,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  min-block-size: 668px; 
+  min-block-size: 668px;
   block-size: 100vh;
 }
 
@@ -295,7 +295,7 @@
   color: var(--title-color);
 }
 
-@media (min-width: 385px) and (max-width: 767px)  {
+@media (min-width: 385px) and (max-width: 767px) {
   .header {
     grid-template-rows: max-content minmax(min-content, max-content);
   }
@@ -309,8 +309,8 @@
 
   .header {
     grid-template-rows: 0.68fr 1.08fr 1.04fr 1.19fr;
-    min-block-size: 1004px;
-    margin-top: 20px;
+    min-block-size: 1024px;
+    padding-top: 20px;
   }
 
   .header_title {
@@ -378,12 +378,16 @@
     min-block-size: 1024px;
   }
 
-  .footer::after {
+  .decorated-zone::after {
     top: 20px;
   }
 
   .decorated-zone::before {
     bottom: 20px;
+  }
+
+  .header__rec-radius::before {
+    top: 28px;
   }
 
   .footer_title {
@@ -393,18 +397,19 @@
 }
 
 @media (width >= 1024px) {
-  .page {
-    margin: 0px auto;
-  }
-
   .header {
     grid-template-rows: 0fr 2fr 0.8fr;
-    min-block-size: 748px;
+    min-block-size: 768px;
   }
 
   .header__rec {
     position: absolute;
     right: 0px;
+    top: 20px;
+  }
+
+  .header__rec-radius::before {
+    top: 8px;
   }
 
   .header_title {
@@ -428,7 +433,7 @@
 
   .header__theme-menu-list {
     flex-direction: row;
-    gap:10px
+    gap: 10px;
   }
 
   .header_overview {
@@ -462,5 +467,11 @@
   .footer_title {
     font-size: var(--size-decstor);
     line-height: 129.53px;
+  }
+}
+
+@media (width > 1024px) {
+  .page {
+    margin: 0px auto;
   }
 }
